@@ -1,0 +1,331 @@
+:root {
+    --dourado: #c5a059;
+    --preto: #000000;
+    --branco: #ffffff;
+    --fundo: #fdfaf5; /* Bege clarinho da logo */
+}
+
+body {
+    background-color: var(--fundo);
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+}
+
+header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+}
+
+/* BARRA PRETA */
+#navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 6%;
+    background-color: var(--preto); /* Fundo Preto */
+    box-shadow: 0px 4px 15px rgba(0,0,0,0.3);
+    height: 80px;
+}
+
+#cart-btn {
+    position: relative;
+    color: var(--branco);
+    font-size: 22px;
+    cursor: pointer;
+    transition: 0.3s;
+    text-decoration: none;
+}
+
+#cart-btn:hover {
+    color: var(--dourado);
+}
+
+#cart-count {
+    position: absolute;
+    top: -6px;
+    right: -10px;
+    background-color: var(--dourado);
+    color: var(--preto);
+    font-size: 12px;
+    font-weight: 600;
+    padding: 2px 6px;
+    border-radius: 50%;
+}
+
+#nav_logo img {
+    height: 70px; 
+    width: auto;
+}
+
+#nav_list {
+    display: flex;
+    list-style: none;
+    gap: 40px;
+    margin: 0;
+}
+
+.nav-item a {
+    text-decoration: none;
+    color: var(--branco); 
+    font-weight: 600;
+    padding-bottom: 5px;
+    transition: 0.3s;
+    border-bottom: 3px solid transparent; 
+}
+
+.nav-item a:hover {
+    color: var(--dourado);
+    border-bottom: 3px solid var(--dourado);
+}
+
+#mobile_menu {
+    display: none; /* Garantindo que o menu mobile esteja oculto por padrão */
+}
+
+.nav-item.active a {
+    color: var(--branco);
+    border-bottom: 3px solid var(--dourado); 
+}
+
+/* Nova linha para garantir a centralização total */
+#search-row {
+    background-color: var(--preto); /* Mantém o fundo da marca */
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente */
+    padding: 10px 0 20px 0;  /* Espaço para não colar no conteúdo abaixo */
+    width: 100%;
+}
+
+#search-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 90%;          /* No celular ocupa quase tudo */
+    max-width: 450px;    /* No computador não fica largo demais */
+}
+
+#search-input {
+    width: 100%;         /* Faz o input preencher o container centralizado */
+    padding: 10px 40px 10px 15px;
+    border-radius: 25px;
+    border: 1px solid rgba(197, 160, 89, 0.5);
+    background-color: #1a1a1a;
+    color: var(--branco);
+    outline: none;
+    transition: 0.3s;
+}
+
+#search-input:focus {
+    border-color: var(--dourado);
+    background-color: #000;
+}
+
+#search-btn {
+    position: absolute;
+    right: 15px;
+    background: none;
+    border: none;
+    color: var(--dourado);
+    cursor: pointer;
+}
+#cta_buttons {
+    display: flex;
+    gap: 24px;
+    margin-top: 20px;
+    justify-content: center;
+}
+
+.btn-default {
+    background-color: var(--preto);
+    color: var(--branco);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    font-weight: 500;
+    border-radius: 8px;
+    transition: 0.3s;
+    border: 2px solid var(--preto);
+}
+
+.btn-default:hover {
+    background-color: var(--dourado);
+    border-color: var(--dourado);
+    transform: translateY(-3px);
+}
+
+#phone_button {
+    background-color: transparent;
+    color: var(--preto);
+    border: 2px solid var(--preto);
+}
+
+#home {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 6%;
+    overflow: visible;
+}
+
+#home {
+    height: 100vh;
+    display: flex;
+    flex-direction: column; /* 🔥 ESSA LINHA RESOLVE TUDO */
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 6%;
+    overflow: visible;
+}
+
+#cta {
+    display: flex;
+    flex-direction: column; /* FORÇA tudo ficar um embaixo do outro */
+    align-items: center;
+    max-width: 800px;
+}
+
+.modelos-indicador {
+    margin-top: 24px;
+    font-size: 1rem;
+    color: #666;
+}
+
+.title { 
+    font-size: 3.5rem; 
+    margin: 0; 
+}
+.title span { 
+    color: var(--dourado); 
+}
+.description { 
+    font-size: 1.2rem; 
+    color: #555; 
+}
+
+#mobile_btn {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: var(--branco);
+    transition: 0.3s; /* Adicionado para suavizar hover */
+}
+
+#mobile_btn:hover {
+    color: var(--dourado); /* Hover para melhor UX */
+}
+
+.social-media-button {
+    display: flex;
+    gap: 18px;
+}
+
+.social-media-button a {
+    display: flex;
+    text-decoration: none;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 40px;
+    background-color: #ffffff;
+    font-size: 1.25rem;
+    border-radius: 10px;
+    color: #1d1d1d;
+    box-shadow: 0px 0px 12px 4px rgba(0, 0, 0, 0.1);
+    transition: all .3s ease;
+}
+
+.social-media-button a:hover {
+    box-shadow: 0px 0px 12px 8px rgba(0, 0, 0, 0.1);
+    color: var(--color-accent);
+}
+
+footer {
+    background-color: #c5a059;
+    width: 100%;
+    margin-top: 50px; 
+}
+
+footer img {
+    width: 100%;
+    display: block;
+    margin-bottom: -1px; 
+}
+
+#footer_items {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 8% 40px 8%; 
+    align-items: center;
+}
+
+#copyright {
+    color: #1d1d1d;
+    font-weight: 600;
+}
+
+#footer_items .social-media-button a {
+    background-color: #25D366;
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.05);
+}
+
+.modelos-indicador {
+    margin-top: 16px;
+    text-align: center;
+}
+
+.spanp {
+    color: #000;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+
+
+@media screen and (max-width: 600px) {
+    #footer_items {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+        padding-bottom: 30px;
+    }
+}
+
+@media screen and (max-width: 1170px) {
+    #nav_list { 
+        display: none; 
+    }
+
+    #mobile_btn { 
+        display: block; 
+    }
+    
+    #mobile_menu.active {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background: var(--preto); 
+        padding: 20px 0;
+        border-bottom: 2px solid var(--dourado);
+    }
+
+    #mobile_menu .nav-item a {
+        color: var(--branco);
+        margin: 10px 0;
+        display: block;
+    }
+
+    /* Ajustes para responsividade */
+    .title {
+        font-size: 2.5rem; /* Reduzido para telas menores */
+    }
+    .description {
+        font-size: 1rem; /* Reduzido para telas menores */
+    }
+}

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="RL.css">
+    <link rel="stylesheet" href="mn.css">
+    <link rel="stylesheet" href="ass.css">
+    <title>A.F Relogios Imports</title>
+</head>
+
+<body>
+
+    <header>
+        <nav id="navbar">
+            <a href="#home" id="nav_logo">
+                <img src="foto/WhatsApp Image 2026-05-20 at 08.19.55.jpeg" alt="Logo A.A Relógios" class="logo-img">
+            </a>
+
+            <ul id="nav_list">
+                <li class="nav-item active"><a href="#home">Início</a></li>
+                <li class="nav-item"><a href="#menu">Produtos</a></li>
+            </ul>
+
+            <a href="cart.html">
+                <div id="cart-btn"> <i class="fa-solid fa-cart-shopping"></i> <span id="cart-count">0</span></div>
+            </a>
+
+            <button id="mobile_btn" type="button">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </nav>
+
+        <div id="mobile_menu">
+            <ul id="mobile_nav_list">
+                <li class="nav-item active"><a href="#home">Início</a></li>
+                <li class="nav-item"><a href="#menu">Produtos</a></li>
+            </ul>
+        </div>
+    </header>
+    <br>
+    <br>
+
+    <main id="content">
+        <section id="home">
+            <div id="cta">
+                <h1 class="title">Relógios e <span>Importados</span></h1>
+                <p class="description">Os melhores preços em segunda linha e linha premium.</p>
+                <p class="description">Somos uma loja de importados focada em qualidade e estilo, trazendo relógios,
+                    fones, óculos, acessórios e outros produtos para quem busca praticidade e bom gosto.</p>
+                <p class="description">Tangará – RN.</p>
+                <div id="cta_buttons">
+                    <a href="https://www.instagram.com/af.relogios_imports/?utm_source=ig_web_button_share_sheet"
+                        class="btn-default" target="_blank">
+                        <i class="fa-brands fa-instagram"></i>Instagram
+                    </a>
+                    <a href="https://wa.me/5584994029361" class="btn-default" id="phone_button">
+                        <i class="fa-solid fa-phone"></i> (84) 99402-9361
+                    </a>
+                </div>
+            </div>
+            <p class="description modelos-indicador">
+                Explore nossos modelos abaixo <br>
+                ⬇️
+            </p>
+        </section>
+
+        <section id="menu">
+            <h2 class="section-title">Nossos Modelos</h2>
+            <div id="search-container">
+                <input type="text" id="search-input" placeholder="Buscar produtos...">
+                <button id="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </div>
+            <h3 class="section-subtitle">Produtos</h3>
+
+            <div class="dishes">
+                <div class="dish">
+                    <div class="heart-icon"><i class="fa"></i></div>
+
+                    <div class="dish-slider">
+                        <img src="https://down-br.img.susercontent.com/file/sg-11134201-7rdy0-m0zh3v8gv378dd.webp"
+                            class="active" onclick="abrirModal(this)">
+
+                        <div class="slider-indicators"></div>
+
+                        <button class="prev">❮</button>
+                        <button class="next">❯</button>
+                    </div>
+
+                    <h3 class="dish-title">Óculos Retro</h3>
+                    <span class="dish-description">Óculos De Sol Retro Arroz Prego<br><span
+                            class="spanp">Azul</span></span>
+                    <div class="span_mium">
+                        <span class="sp_um">Linha premium</span>
+                    </div>
+
+                    <div class="dish-price">
+                        <h4>R$ 34,99</h4>
+
+                        <button class="btn-default add-cart" data-name="Óculos De Sol Retro Arroz Prego"
+                            data-color="Azul" data-price="34,99"
+                            data-img="https://down-br.img.susercontent.com/file/sg-11134201-7rdy0-m0zh3v8gv378dd.webp"
+                            type="button">
+                            <i class="fa-solid fa-basket-shopping"></i>
+                            Faça seu pedido
+                        </button>
+                    </div>
+                </div>
+
+                <div class="dish">
+                    <div class="heart-icon"><i class="fa"></i></div>
+
+                    <div class="dish-slider">
+                        <img src="foto/WhatsApp Image 2026-10-06 at 17.43.18.jpeg" class="active"
+                            onclick="abrirModal(this)">
+
+                        <div class="slider-indicators"></div>
+
+                        <button class="prev">❮</button>
+                        <button class="next">❯</button>
+                    </div>
+
+                    <h3 class="dish-title">Óculos Retro</h3>
+                    <span class="dish-description">Óculos De Sol Retro Arroz Prego <br><span
+                            class="spanp">Preto</span></span>
+                    <div class="span_mium">
+                        <span class="sp_um">Linha premium</span>
+                    </div>
+
+                    <div class="dish-price">
+                        <h4>R$ 34,99</h4>
+
+
+                        <button class="btn-default add-cart" data-name="Óculos De Sol Retro Arroz Prego"
+                            data-color="Preto" data-price="34,99"
+                            data-img="foto/WhatsApp Image 2026-10-06 at 17.43.18.jpeg" type="button">
+                            <i class="fa-solid fa-basket-shopping"></i>
+                            Faça seu pedido
+                        </button>
+
+                    </div>
+                </div>
+
+                <div class="dish">
+                    <div class="heart-icon"><i class="fa"></i></div>
+
+                    <div class="dish-slider">
+                        <img src="https://down-br.img.susercontent.com/file/sg-11134201-7rdwo-m0zh3t8vt90p8c.webp"
+                            class="active" onclick="abrirModal(this)">
+
+                        <div class="slider-indicators"></div>
+
+                        <button class="prev">❮</button>
+                        <button class="next">❯</button>
+                    </div>
+
+                    <h3 class="dish-title">Óculos Retro</h3>
+                    <span class="dish-description">Óculos De Sol Retro Arroz Prego<br><span
+                            class="spanp">Transparente</span></span>
+                    <div class="span_mium">
+                        <span class="sp_um">Linha premium</span>
+                    </div>
+
+                    <div class="dish-price">
+                        <h4>R$ 34,99</h4>
+
+
+                        <button class="btn-default add-cart" data-name="Óculos De Sol Retro Arroz Prego"
+                            data-color="Transparente" data-price="34,99"
+                            data-img="https://down-br.img.susercontent.com/file/sg-11134201-7rdwo-m0zh3t8vt90p8c.webp"
+                            type="button">
+                            <i class="fa-solid fa-basket-shopping"></i>
+                            Faça seu pedido
+                        </button>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <img src="wave.svg" alt="">
+        <div id="footer_items">
+            <div class="social-media-button">
+                <a href="https://wa.me/5584994029361"><i class="fa-brands fa-whatsapp"></i></a>
+            </div>
+            <span id="copyright">&copy; 2025 Abraão Feliphe</span>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="main.js"></script>
+    <div id="imageModal" class="modal" onclick="fecharModal()">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="modalImg">
+    </div>
+</body>
+
+</html>

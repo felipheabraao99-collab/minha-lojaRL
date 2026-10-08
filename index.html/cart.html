@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="RL.css">
+    <link rel="stylesheet" href="mn.css">
+    <link rel="stylesheet" href="ass.css">
+    <title>Finalizar Compra</title>
+    h1
+    <style>
+        main {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            text-align: center;
+        }
+        h1 { color: #1d1d1d; }
+        
+        #cart-items {
+            background: #fff;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+            text-align: left;
+        }
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        form {
+            max-width: 450px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        input {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-sizing: border-box;
+            font-family: inherit;
+        }
+        button[type="submit"] {
+            background-color: #c5a059;
+            color: #fff;
+            border: none;
+            padding: 15px 25px;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 100%;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+        button[type="submit"]:hover {
+            background-color: #1d1d1d;
+        }
+        /* Ajuste do Footer para não colar no conteúdo */
+        footer { margin-top: 80px; }
+
+        form {
+    max-width: 450px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* Sombra suave para dar profundidade */
+}
+
+input, select {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-sizing: border-box; /* Garante que o padding não aumente a largura do input */
+    font-family: inherit;
+}
+
+/* Exemplo de como as seções estão configuradas inicialmente no HTML */
+#pagamento-pix, #pagamento-cartao, #pagamento-dinheiro {
+    display: none; 
+    margin-top: 15px;
+}
+
+/* Estilo do botão "Copiar código Pix" */
+#pagamento-pix button {
+    background: #1d1d1d;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    width: 100%;
+    transition: 0.3s;
+}
+
+#pagamento-pix button:hover {
+    background: #c5a059; /* Muda para a cor dourada ao passar o mouse */
+}
+
+/* Centralização do QR Code */
+#pix-qrcode {
+    margin: 15px 0;
+    display: flex;
+    justify-content: center;
+}
+
+#mensagem-confirmacao {
+    display: none; /* Invisível até o envio */
+    margin-top: 20px;
+    background: #e8f5e9; /* Verde bem claro */
+    color: #1b5e20; /* Verde escuro para o texto */
+    padding: 15px;
+    border-radius: 8px;
+    font-weight: 500;
+}
+
+.cart-item button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: red;
+    padding: 5px;
+    min-width: 30px;
+}
+
+.cart-item {
+    overflow: visible;
+}
+
+    </style>
+</head>
+<body>
+
+<header>
+    <nav id="navbar">
+        <a href="index.html" id="nav_logo">
+            <img src="foto/WhatsApp Image 2026-05-20 at 08.19.55.jpeg" alt="Logo A.A Relógios">
+        </a>
+        <button onclick="history.back()" style="
+    padding:10px 20px;
+    background:#1d1d1d;
+    color:#fff;
+    border:none;
+    border-radius:6px;
+    cursor:pointer;
+">
+    ← Voltar
+</button>
+    </nav>
+</header>
+
+<main>
+    <h1>Finalizar Compra</h1>
+    <p>Itens no carrinho: <strong id="total-itens">0</strong></p>
+    <div id="cart-items"></div>
+    <h2>Total: R$ <span id="cart-total">0.00</span></h2>
+
+    <form id="contato-form">
+        <input type="text" id="nome" name="nome" placeholder="Nome completo" required>
+        <input type="text" id="telefone" name="telefone" placeholder="Telefone" required>
+        <input type="text" id="valor" name="valor" placeholder="Valor total" readonly>
+        <input type="text" id="endereco" name="endereco" placeholder="Endereço" required>
+        <input type="hidden" id="produtos" name="produtos">
+
+    <select id="pagamento" name="pagamento" required>
+    <option value="">Forma de pagamento</option>
+    <option value="pix">Pix</option>
+    <option value="dinheiro">Dinheiro</option>
+</select>
+
+<!-- DINHEIRO -->
+<section id="pagamento-dinheiro" style="display:none;">
+   <input type="text" name="troco" placeholder="Troco para quanto?">
+</section>
+        <button type="submit" id="btn-enviar">Enviar pedido</button>
+    </form>
+    <p id="mensagem-confirmacao" style="
+    display:none;
+    margin-top:20px;
+    background:#e8f5e9;
+    color:#1b5e20;
+    padding:15px;
+    border-radius:8px;
+    font-weight:500;
+"></p>
+</main>
+
+<footer>
+    <img src="foto/wave.svg" alt="">
+    <div id="footer_items">
+        <div class="social-media-button">
+            <a href="https://wa.me/5584994029361"><i class="fa-brands fa-whatsapp"></i></a>
+        </div>
+        <span id="copyright">&copy; 2025 Abraão Feliphe</span>
+    </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script src="cart.js"></script>
+<script>
+    /* ==========================
+       MOSTRAR FORMA DE PAGAMENTO
+    ========================== */
+    document.getElementById("pagamento")
+        .addEventListener("change", function () {
+
+            ["cartao", "dinheiro"].forEach(id => {
+                document.getElementById(`pagamento-${id}`)
+                    .style.display = "none";
+            });
+
+            if (this.value) {
+                const secao = document.getElementById(
+                    `pagamento-${this.value}`
+                );
+
+                if (secao) {
+                    secao.style.display = "block";
+                }
+            }
+        });
+
+
+    /* ==========================
+       ENVIAR PEDIDO WHATSAPP
+    ========================== */
+    document.getElementById("contato-form")
+        .addEventListener("submit", function (e) {
+
+            e.preventDefault();
+
+            const btn = document.getElementById("btn-enviar");
+            const msg = document.getElementById("mensagem-confirmacao");
+
+            btn.innerText = "Enviando...";
+            btn.disabled = true;
+
+            // Dados do formulário
+            const nome =
+                document.getElementById("nome").value;
+
+            const telefone =
+                document.getElementById("telefone").value;
+
+            const endereco =
+                document.getElementById("endereco").value;
+
+            const pagamento =
+                document.getElementById("pagamento").value;
+
+            const total =
+                document.getElementById("cart-total").innerText;
+
+            // Produtos do carrinho
+            const itens =
+                document.querySelectorAll("#cart-items .cart-item");
+
+            let listaProdutos = "";
+
+            itens.forEach(item => {
+                listaProdutos += `• ${item.innerText}\n`;
+            });
+
+            // Informação extra do pagamento
+            let detalhePagamento = "";
+
+            if (pagamento === "cartao") {
+                const tipodepagamento =
+                    document.querySelector(
+                        'select[name="tipo_cartao"]'
+                    ).value;
+
+                detalhePagamento =
+                    `Tipo: ${tipodepagamento}`;
+            }
+
+            if (pagamento === "dinheiro") {
+                const troco =
+                    document.querySelector(
+                        'input[name="troco"]'
+                    ).value;
+
+                detalhePagamento =
+                    `Troco para: ${troco}`;
+            }
+
+            // Mensagem WhatsApp
+            const mensagem =
+`🛒 *NOVO PEDIDO*
+
+👤 *Cliente:* ${nome}
+📞 *Telefone:* ${telefone}
+📍 *Endereço:* ${endereco}
+📍 *Cor:* ${cor}
+
+📦 *Produtos:*
+${listaProdutos}
+
+💰 *Total:* R$ ${total}
+
+💳 *Pagamento:* ${pagamento}
+${detalhePagamento}`;
+
+            const numero = "5584994029361";
+
+            // Link WhatsApp
+            const url =
+                `https://wa.me/${numero}?text=${encodeURIComponent(mensagem)}`;
+
+            // Abrir WhatsApp
+            window.open(url, "_blank");
+
+            // Mensagem de sucesso
+            msg.style.display = "block";
+            msg.innerText =
+                "Pedido enviado para o WhatsApp!";
+
+            // Limpa carrinho
+            localStorage.removeItem("cart");
+
+            document.getElementById("cart-items")
+                .innerHTML = "";
+
+            document.getElementById("total-itens")
+                .innerText = "0";
+
+            document.getElementById("cart-total")
+                .innerText = "0.00";
+
+            // Limpa formulário
+            this.reset();
+
+            btn.innerText = "Enviar pedido";
+            btn.disabled = false;
+        });
+</script>
+
+</body>
+</html>
